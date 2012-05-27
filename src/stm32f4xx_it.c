@@ -179,7 +179,7 @@ void CAN1_RX0_IRQHandler(void)
   if ((RxMessage.StdId == 0x321)&&(RxMessage.IDE == CAN_ID_STD) && (RxMessage.DLC == 1))
   {
     LED_Display(RxMessage.Data[0]);
-    KeyNumber = RxMessage.Data[0];
+    //KeyNumber = RxMessage.Data[0];
   }
 }
 #endif  /* USE_CAN1 */

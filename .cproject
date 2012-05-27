@@ -48,6 +48,7 @@
 								<option id="com.atollic.truestudio.common_options.target.fpu.1246402836" name="Floating point" superClass="com.atollic.truestudio.common_options.target.fpu" value="com.atollic.truestudio.common_options.target.fpu.hard" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.gcc.optimization.prep_garbage.1182994640" name="Prepare dead code removal" superClass="com.atollic.truestudio.gcc.optimization.prep_garbage" value="true" valueType="boolean"/>
 								<option id="com.atollic.truestudio.gcc.optimization.prep_data.145637081" name="Prepare dead data removal" superClass="com.atollic.truestudio.gcc.optimization.prep_data" value="true" valueType="boolean"/>
+								<option id="com.atollic.truestudio.gcc.cstandard.1749557720" superClass="com.atollic.truestudio.gcc.cstandard" value="com.atollic.truestudio.gcc.cstandard.gnu99" valueType="enumerated"/>
 								<inputType id="com.atollic.truestudio.gcc.input.85834396" superClass="com.atollic.truestudio.gcc.input"/>
 							</tool>
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.ld.1345615931" name="C Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ld">
