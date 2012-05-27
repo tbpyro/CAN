@@ -1,34 +1,8 @@
 /**
- ******************************************************************************
- * @file    CAN/Networking/main.c
- * @author  MCD Application Team
- * @version V1.0.1
- * @date    13-April-2012
- * @brief   Main program body
- ******************************************************************************
- * @attention
- *
- * <h2><center>&copy; COPYRIGHT 2012 STMicroelectronics</center></h2>
- *
- * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
- * You may not use this file except in compliance with the License.
- * You may obtain a copy of the License at:
- *
- *        http://www.st.com/software_license_agreement_liberty_v2
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- ******************************************************************************
- */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-#define CLIENT_ONLY
+//#define CLIENT_ONLY
 /** @addtogroup STM32F4xx_StdPeriph_Examples
  * @{
  */
@@ -105,7 +79,7 @@ int main(void) {
 		uint8_t result = CAN_TxStatus_Pending;
 		while ((result = CAN_TransmitStatus(CANx, mailbox))
 				== CAN_TxStatus_Pending)
-			;
+		;
 		Delay();
 #endif
 		for (int i = 0; i < 1000; i++)
@@ -163,10 +137,10 @@ void CAN_Config(void) {
 	CAN_InitStructure.CAN_Mode = CAN_Mode_Normal;
 	CAN_InitStructure.CAN_SJW = CAN_SJW_1tq;
 
-	/* CAN Baudrate = 1 MBps (CAN clocked at 30 MHz) */
-	CAN_InitStructure.CAN_BS1 = CAN_BS1_6tq;
-	CAN_InitStructure.CAN_BS2 = CAN_BS2_8tq;
-	CAN_InitStructure.CAN_Prescaler = 2;
+	// 500 kB/s bei 48 MHz APB1 Clock
+	CAN_InitStructure.CAN_BS1 = CAN_BS1_7tq; // 6
+	CAN_InitStructure.CAN_BS2 = CAN_BS2_8tq; // 7
+	CAN_InitStructure.CAN_Prescaler = 5 + 1; // + 1 since assignment in CAN Init uses CAN_InitStruct->CAN_Prescaler - 1
 	CAN_Init(CANx, &CAN_InitStructure);
 
 	/* CAN filter init */

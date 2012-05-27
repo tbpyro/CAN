@@ -370,10 +370,10 @@ static void SetSysClock(void)
     /* HCLK = SYSCLK / 1*/
     RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
       
-    /* PCLK2 = HCLK / 2*/
+    /* PCLK2 = HCLK / 2 -> APB2 */
     RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;
     
-    /* PCLK1 = HCLK / 4*/
+    /* PCLK1 = HCLK / 4  -> APB1 */
     RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
 
     /* Configure the main PLL */
