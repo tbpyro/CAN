@@ -137,9 +137,9 @@ void CAN_Config(void) {
 	CAN_InitStructure.CAN_Mode = CAN_Mode_Normal;
 	CAN_InitStructure.CAN_SJW = CAN_SJW_1tq;
 
-	// 500 kB/s bei 48 MHz APB1 Clock
-	CAN_InitStructure.CAN_BS1 = CAN_BS1_7tq; // 6
-	CAN_InitStructure.CAN_BS2 = CAN_BS2_8tq; // 7
+	// 500 kB/s bei 42 MHz APB1 Clock
+	CAN_InitStructure.CAN_BS1 = CAN_BS1_6tq; // 5
+	CAN_InitStructure.CAN_BS2 = CAN_BS2_7tq; // 6
 	CAN_InitStructure.CAN_Prescaler = 5 + 1; // + 1 since assignment in CAN Init uses CAN_InitStruct->CAN_Prescaler - 1
 	CAN_Init(CANx, &CAN_InitStructure);
 

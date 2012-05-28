@@ -155,10 +155,14 @@ SECTIONS
     . = ALIGN(4);
     _ebss = .;         /* define a global symbol at bss end */
     __bss_end__ = _ebss;
+    
+    /* provide heap of 12k */
+    PROVIDE(__heap_start__ = .);
+    PROVIDE(__heap_end__ = ALIGN( . + 24576 ,8));
   } >RAM
 
   /* User_heap_stack section, used to check that there is enough RAM left */
-  ._user_heap_stack :
+  /*._user_heap_stack :
   {
     . = ALIGN(4);
     PROVIDE ( end = . );
@@ -166,7 +170,7 @@ SECTIONS
     . = . + _Min_Heap_Size;
     . = . + _Min_Stack_Size;
     . = ALIGN(4);
-  } >RAM
+  } >RAM*/
 
   /* MEMORY_bank1 section, code must be located here explicitly            */
   /* Example: extern int foo(void) __attribute__ ((section (".mb1text"))); */
